@@ -1,0 +1,329 @@
+/* Variables de Diseño (Paleta Goku Orange & Deep Blue/Cyan) */
+:root {
+    --goku-orange: #FF6600;
+    --goku-orange-hover: #E05A00;
+    --deep-blue: #003366;
+    --cyan-accent: #005599;
+    --bg-dark: #001F3F;
+    --text-light: #F4F6F9;
+    --text-muted: #B0C4DE;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.highlight {
+    color: var(--goku-orange);
+}
+
+/* Cabecera */
+.header {
+    background-color: var(--deep-blue);
+    border-bottom: 3px solid var(--goku-orange);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--goku-orange);
+}
+
+.btn-cta-nav {
+    background-color: var(--goku-orange);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: background 0.3s;
+}
+
+.btn-cta-nav:hover {
+    background-color: var(--goku-orange-hover);
+}
+
+/* Manejo de Secciones / Páginas */
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--bg-dark) 100%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--goku-orange);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--goku-orange-hover);
+    transform: translateY(-2px);
+}
+
+.hero-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain; /* Garantiza inmutabilidad y proporciones exactas */
+}
+
+/* Ventajas DTF */
+.advantages {
+    padding: 60px 0;
+    background-color: rgba(0, 51, 102, 0.3);
+}
+
+.advantages h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.advantage-card {
+    background-color: var(--deep-blue);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--goku-orange);
+}
+
+.advantage-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.advantage-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Galería (Inmutabilidad de Imágenes) */
+.gallery {
+    padding: 70px 0;
+}
+
+.gallery h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.image-wrapper {
+    background-color: var(--deep-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 85, 153, 0.4);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain; /* Evita recortes y alteraciones de la IA */
+}
+
+.card-action {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--goku-orange);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--goku-orange-hover);
+}
+
+/* Encabezado página nuevos diseños */
+.new-releases-header {
+    padding: 60px 0 20px 0;
+    text-align: center;
+}
+
+.new-releases-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--deep-blue);
+    border-top: 3px solid var(--goku-orange);
+    padding: 50px 0 20px 0;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    color: var(--text-muted);
+}
+
+.footer-links h3 {
+    margin-bottom: 15px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-social {
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-social.whatsapp {
+    background-color: #25D366;
+}
+
+.btn-social.instagram {
+    background-color: #E1306C;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero-grid, .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+}
