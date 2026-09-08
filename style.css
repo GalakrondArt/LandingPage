@@ -61,6 +61,23 @@ body {
     object-fit: contain;
 }
 
+/* Contenedor del nuevo banner de texto */
+.header-banner {
+    flex: 1; /* Ocupa el espacio restante entre el logo y el menú */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+/* Configuración de la imagen del banner */
+.header-banner img {
+    max-height: 45px; /* Altura alineada con el logotipo para no romper la barra */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 /* Ocultar el botón hamburguesa en computadora */
 .menu-toggle {
     display: none;
@@ -430,6 +447,11 @@ body {
         justify-content: center;
     }
     
+    /* Pequeño ajuste para que el texto de la imagen del banner no se vea apretado */
+    .header-banner img {
+        max-height: 35px;
+    }
+
     /* Liberamos al contenedor para que el menú pueda abarcar toda la pantalla */
     .nav-container {
         position: static; 
