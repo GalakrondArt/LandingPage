@@ -1,12 +1,16 @@
-/* Variables de Diseño (Paleta Goku Orange & Deep Blue/Cyan) */
+/* Variables de Diseño (Paleta Forest Green & Deep Orange) */
 :root {
-    --goku-orange: #FF6600;
-    --goku-orange-hover: #E05A00;
-    --deep-blue: #003366;
-    --cyan-accent: #005599;
-    --bg-dark: #001F3F;
+    --brand-orange: #FF6600;
+    --brand-orange-hover: #E05A00;
+    
+    /* Nuevos tonos verdes en reemplazo del azul */
+    --deep-green: #0A2F1D; /* Fondo de cabecera y footer */
+    --bg-dark: #051A10;    /* Fondo principal oscuro */
+    --green-accent: #114D31; /* Fondo de tarjetas */
+    --green-light: #1E7A4E; /* Detalles y bordes */
+    
     --text-light: #F4F6F9;
-    --text-muted: #B0C4DE;
+    --text-muted: #A3B8AD; /* Ligeramente tintado de verde */
     --white: #FFFFFF;
 }
 
@@ -30,17 +34,18 @@ body {
 }
 
 .highlight {
-    color: var(--goku-orange);
+    color: var(--brand-orange);
 }
 
 /* Cabecera */
 .header {
-    background-color: var(--deep-blue);
-    border-bottom: 3px solid var(--goku-orange);
+    background-color: var(--deep-green);
+    border-bottom: 3px solid var(--brand-orange);
     position: sticky;
     top: 0;
     z-index: 1000;
     padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -69,11 +74,11 @@ body {
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--goku-orange);
+    color: var(--brand-orange);
 }
 
 .btn-cta-nav {
-    background-color: var(--goku-orange);
+    background-color: var(--brand-orange);
     color: var(--white);
     padding: 8px 20px;
     border-radius: 4px;
@@ -83,22 +88,28 @@ body {
 }
 
 .btn-cta-nav:hover {
-    background-color: var(--goku-orange-hover);
+    background-color: var(--brand-orange-hover);
 }
 
 /* Manejo de Secciones / Páginas */
 .page-section {
     display: none;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .page-section.active {
     display: block;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Hero Section */
 .hero {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--bg-dark) 100%);
+    background: linear-gradient(135deg, var(--deep-green) 0%, var(--bg-dark) 100%);
 }
 
 .hero-grid {
@@ -109,7 +120,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -123,31 +134,34 @@ body {
 
 .btn-primary {
     display: inline-block;
-    background-color: var(--goku-orange);
+    background-color: var(--brand-orange);
     color: var(--white);
     padding: 15px 30px;
     border-radius: 6px;
     font-weight: 800;
     text-decoration: none;
     text-transform: uppercase;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: var(--goku-orange-hover);
-    transform: translateY(-2px);
+    background-color: var(--brand-orange-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4);
 }
 
 .hero-image img {
     width: 100%;
     max-height: 450px;
-    object-fit: contain; /* Garantiza inmutabilidad y proporciones exactas */
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
 /* Ventajas DTF */
 .advantages {
-    padding: 60px 0;
-    background-color: rgba(0, 51, 102, 0.3);
+    padding: 70px 0;
+    background-color: rgba(10, 47, 29, 0.4);
 }
 
 .advantages h2 {
@@ -163,15 +177,22 @@ body {
 }
 
 .advantage-card {
-    background-color: var(--deep-blue);
+    background-color: var(--green-accent);
     padding: 30px;
-    border-radius: 8px;
-    border-left: 4px solid var(--goku-orange);
+    border-radius: 12px;
+    border-left: 4px solid var(--brand-orange);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
 }
 
 .advantage-card h3 {
     margin-bottom: 10px;
     font-size: 1.2rem;
+    color: var(--white);
 }
 
 .advantage-card p {
@@ -179,7 +200,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Galería (Inmutabilidad de Imágenes) */
+/* Galería */
 .gallery {
     padding: 70px 0;
 }
@@ -196,6 +217,36 @@ body {
     margin-bottom: 40px;
 }
 
+/* Botones de Categorías Nuevos */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--green-light);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--green-light);
+    color: var(--white);
+    border-color: var(--green-light);
+    box-shadow: 0 4px 10px rgba(30, 122, 78, 0.4);
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -203,22 +254,28 @@ body {
 }
 
 .image-wrapper {
-    background-color: var(--deep-blue);
-    border-radius: 8px;
+    background-color: var(--green-accent);
+    border-radius: 12px;
     overflow: hidden;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 85, 153, 0.4);
+    border: 1px solid rgba(30, 122, 78, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
 .image-wrapper img {
     width: 100%;
     height: auto;
     max-height: 350px;
-    object-fit: contain; /* Evita recortes y alteraciones de la IA */
+    object-fit: contain;
 }
 
 .card-action {
@@ -229,17 +286,28 @@ body {
 
 .btn-secondary {
     display: inline-block;
-    background-color: var(--goku-orange);
+    background-color: var(--brand-orange);
     color: var(--white);
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: 600;
     text-decoration: none;
     transition: background 0.3s;
+    width: 100%;
+    max-width: 200px;
 }
 
 .btn-secondary:hover {
-    background-color: var(--goku-orange-hover);
+    background-color: var(--brand-orange-hover);
+}
+
+/* Ocultar elementos filtrados */
+.design-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.design-item.hidden {
+    display: none;
 }
 
 /* Encabezado página nuevos diseños */
@@ -249,16 +317,17 @@ body {
 }
 
 .new-releases-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 15px;
 }
 
 /* Footer */
 .footer {
-    background-color: var(--deep-blue);
-    border-top: 3px solid var(--goku-orange);
-    padding: 50px 0 20px 0;
+    background-color: var(--deep-green);
+    border-top: 3px solid var(--brand-orange);
+    padding: 60px 0 20px 0;
     margin-top: 50px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
 }
 
 .footer-grid {
@@ -266,20 +335,22 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .footer-logo {
-    height: 40px;
+    height: 45px;
     margin-bottom: 15px;
 }
 
 .footer-info p {
     color: var(--text-muted);
+    max-width: 400px;
 }
 
 .footer-links h3 {
     margin-bottom: 15px;
+    color: var(--white);
 }
 
 .social-buttons {
@@ -290,10 +361,16 @@ body {
 
 .btn-social {
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.btn-social:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 .btn-social.whatsapp {
@@ -302,12 +379,13 @@ body {
 
 .btn-social.instagram {
     background-color: #E1306C;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 25px;
     color: var(--text-muted);
     font-size: 0.9rem;
 }
@@ -321,6 +399,14 @@ body {
     
     .hero-content h1 {
         font-size: 2.2rem;
+    }
+    
+    .footer-info p {
+        margin: 0 auto;
+    }
+    
+    .social-buttons {
+        justify-content: center;
     }
     
     .nav-menu {

@@ -25,6 +25,35 @@ function switchPage(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Función para filtrar los nuevos diseños mediante botones
+function filterDesigns(category) {
+    // Actualizar botones activos
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Filtrar los elementos
+    const items = document.querySelectorAll('.design-item');
+    items.forEach(item => {
+        if (category === 'all') {
+            item.classList.remove('hidden');
+            item.style.display = 'flex';
+        } else {
+            if (item.classList.contains(category)) {
+                item.classList.remove('hidden');
+                item.style.display = 'flex';
+            } else {
+                item.classList.add('hidden');
+                setTimeout(() => {
+                    if(item.classList.contains('hidden')) {
+                        item.style.display = 'none';
+                    }
+                }, 400); // Dar tiempo a la transición CSS
+            }
+        }
+    });
+}
+
 // Escuchar cambios en la URL (Hash) para navegación directa opcional
 window.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash === '#new-designs') {

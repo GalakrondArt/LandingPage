@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estampados DTF | Alta Definición</title>
+    <title>GALAKROND ART | Estampados DTF y Diseño</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <header class="header">
         <div class="container nav-container">
             <div class="logo">
-                <img src="./src/logo.png" alt="Logotipo Estampados DTF">
+                <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
             </div>
             <nav class="nav-menu">
                 <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
@@ -33,8 +33,8 @@
             <section class="hero">
                 <div class="container hero-grid">
                     <div class="hero-content">
-                        <h1>Estampados en DTF de <span class="highlight">Alta Definición</span></h1>
-                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para todo tipo de telas.</p>
+                        <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
+                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
                         <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
                     </div>
                     <div class="hero-image">
@@ -49,7 +49,7 @@
                     <div class="advantages-grid">
                         <div class="advantage-card">
                             <h3>Colores Ultra Vibrantes</h3>
-                            <p>Tonos vivos y fieles a tu diseño original sin perder intensidad en telas oscuras o claras.</p>
+                            <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
                         </div>
                         <div class="advantage-card">
                             <h3>Máxima Durabilidad</h3>
@@ -90,26 +90,34 @@
             <section class="new-releases-header">
                 <div class="container">
                     <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
-                    <p>Descubre nuestras últimas creaciones listas para estamparse en tus prendas favoritas.</p>
+                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
+                    
+                    <!-- Nuevos botones de acceso a diseños -->
+                    <div class="category-filters">
+                        <button class="filter-btn active" onclick="filterDesigns('all')">Ver Todos</button>
+                        <button class="filter-btn" onclick="filterDesigns('fauna')">Fauna Colombiana</button>
+                        <button class="filter-btn" onclick="filterDesigns('urbano')">Estilo Urbano</button>
+                        <button class="filter-btn" onclick="filterDesigns('precolombino')">Precolombino</button>
+                    </div>
                 </div>
             </section>
 
             <section class="gallery">
                 <div class="container">
-                    <div class="gallery-grid">
-                        <div class="image-wrapper">
+                    <div class="gallery-grid" id="designs-grid">
+                        <div class="image-wrapper design-item fauna precolombino">
                             <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
                         </div>
-                        <div class="image-wrapper">
+                        <div class="image-wrapper design-item urbano">
                             <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
                         </div>
-                        <div class="image-wrapper">
+                        <div class="image-wrapper design-item fauna">
                             <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
@@ -125,8 +133,8 @@
     <footer id="contacto" class="footer">
         <div class="container footer-grid">
             <div class="footer-info">
-                <img src="./src/logo.png" alt="Logo Footer" class="footer-logo">
-                <p>Especialistas en impresión y estampados DTF de máxima calidad para tu marca o proyecto.</p>
+                <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
+                <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
             </div>
             <div class="footer-links">
                 <h3>Contacto Rápido</h3>
@@ -138,7 +146,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Estampados DTF. Todos los derechos reservados.</p>
+            <p>&copy; 2026 GALAKROND ART. Todos los derechos reservados.</p>
         </div>
     </footer>
 
