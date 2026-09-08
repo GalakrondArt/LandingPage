@@ -25,6 +25,8 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+    width: 100%;
 }
 
 .container {
@@ -46,17 +48,61 @@ body {
     z-index: 1000;
     padding: 15px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    gap: 15px; /* Separación mínima segura entre elementos */
+}
+
+/* Protegemos el logo para que no se comprima por el banner */
+.logo {
+    flex-shrink: 0; 
 }
 
 .logo img {
     height: 45px;
     object-fit: contain;
+}
+
+/* Contenedor del banner: Responsivo y controlado */
+.header-banner {
+    flex: 1 1 auto; 
+    min-width: 0; /* CLAVE PARA iOS: Permite que el contenedor se encoja por debajo del tamaño de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-banner img {
+    width: 100%; /* Se adapta al espacio disponible */
+    max-width: 350px; /* Ancho máximo en escritorio */
+    height: auto;
+    max-height: 45px; /* Nunca superará el alto del logotipo */
+    object-fit: contain;
+}
+
+/* Ocultar el botón hamburguesa en computadora */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1001;
+    flex-shrink: 0; /* Protegemos el menú para que no se apriete */
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-menu {
@@ -200,7 +246,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Galería (Inmutabilidad de Imágenes) */
+/* Galería */
 .gallery {
     padding: 70px 0;
 }
@@ -391,7 +437,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsividad */
+/* RESPONSIVIDAD PARA MÓVILES */
 @media (max-width: 768px) {
     .hero-grid, .footer-grid {
         grid-template-columns: 1fr;
@@ -410,7 +456,56 @@ body {
         justify-content: center;
     }
     
+    /* Adaptación del banner en móviles */
+    .header-banner img {
+        max-height: 30px; /* Lo reducimos un poco más en móvil para que respire */
+    }
+
+    /* Liberamos al contenedor para que el menú pueda abarcar toda la pantalla */
+    .nav-container {
+        position: static; 
+    }
+
+    .menu-toggle {
+        display: flex; /* Muestra el icono de hamburguesa */
+    }
+
+    /* Configuración del Menú Desplegable (Responsivo con ocultamiento absoluto) */
     .nav-menu {
-        display: none;
+        position: absolute;
+        top: 100%; /* Inicia justo debajo de la cabecera */
+        left: 0;
+        flex-direction: column;
+        background-color: var(--deep-green);
+        width: 100%; /* Toma el ancho total de la pantalla de borde a borde */
+        text-align: center;
+        padding: 30px 0;
+        gap: 25px;
+        border-bottom: 3px solid var(--brand-orange);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        
+        /* Ocultamiento y animación */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 0.4s ease-in-out;
+    }
+
+    /* Cuando JS agrega esta clase, el menú se hace visible y se desliza a la pantalla */
+    .nav-menu.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Animación del icono de hamburguesa convirtiéndose en 'X' */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
