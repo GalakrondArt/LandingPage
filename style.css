@@ -3,14 +3,13 @@
     --brand-orange: #FF6600;
     --brand-orange-hover: #E05A00;
     
-    /* Nuevos tonos verdes en reemplazo del azul */
-    --deep-green: #0A2F1D; /* Fondo de cabecera y footer */
-    --bg-dark: #051A10;    /* Fondo principal oscuro */
-    --green-accent: #114D31; /* Fondo de tarjetas */
-    --green-light: #1E7A4E; /* Detalles y bordes */
+    --deep-green: #0A2F1D; 
+    --bg-dark: #051A10;    
+    --green-accent: #114D31; 
+    --green-light: #1E7A4E; 
     
     --text-light: #F4F6F9;
-    --text-muted: #A3B8AD; /* Ligeramente tintado de verde */
+    --text-muted: #A3B8AD; 
     --white: #FFFFFF;
 }
 
@@ -25,6 +24,7 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
 }
 
 .container {
@@ -52,11 +52,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo img {
     height: 45px;
     object-fit: contain;
+}
+
+/* Ocultar el botón hamburguesa en computadora */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-menu {
@@ -91,7 +110,7 @@ body {
     background-color: var(--brand-orange-hover);
 }
 
-/* Manejo de Secciones / Páginas */
+/* Manejo de Secciones */
 .page-section {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
@@ -200,7 +219,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Galería (Inmutabilidad de Imágenes) */
+/* Galería */
 .gallery {
     padding: 70px 0;
 }
@@ -217,7 +236,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Filtros de Categorías Nuevos */
+/* Filtros de Categorías */
 .category-filters {
     display: flex;
     justify-content: center;
@@ -271,7 +290,6 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* Mantiene el formato PNG original intacto */
 .image-wrapper img {
     width: 100%;
     height: auto;
@@ -302,7 +320,7 @@ body {
     background-color: var(--brand-orange-hover);
 }
 
-/* Animación para ocultar elementos filtrados */
+/* Ocultar elementos filtrados */
 .design-item {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -391,7 +409,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsividad */
+/* RESPONSIVIDAD PARA MÓVILES */
 @media (max-width: 768px) {
     .hero-grid, .footer-grid {
         grid-template-columns: 1fr;
@@ -410,7 +428,39 @@ body {
         justify-content: center;
     }
     
+    /* Configuración del Menú Desplegable (Responsivo) */
+    .menu-toggle {
+        display: flex; /* Muestra el icono de hamburguesa */
+    }
+
     .nav-menu {
-        display: none;
+        position: absolute;
+        top: 100%; /* Inicia justo debajo de la cabecera */
+        left: -100%; /* Oculto fuera de la pantalla por defecto */
+        flex-direction: column;
+        background-color: var(--deep-green);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        padding: 30px 0;
+        gap: 25px;
+        border-bottom: 3px solid var(--brand-orange);
+    }
+
+    /* Cuando JS agrega esta clase, el menú se desliza a la vista */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    /* Animación del icono de hamburguesa convirtiéndose en 'X' */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
