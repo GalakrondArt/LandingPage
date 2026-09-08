@@ -200,7 +200,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Galería */
+/* Galería (Inmutabilidad de Imágenes) */
 .gallery {
     padding: 70px 0;
 }
@@ -217,7 +217,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Botones de Categorías Nuevos */
+/* Filtros de Categorías Nuevos */
 .category-filters {
     display: flex;
     justify-content: center;
@@ -271,6 +271,7 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
+/* Mantiene el formato PNG original intacto */
 .image-wrapper img {
     width: 100%;
     height: auto;
@@ -301,7 +302,7 @@ body {
     background-color: var(--brand-orange-hover);
 }
 
-/* Ocultar elementos filtrados */
+/* Animación para ocultar elementos filtrados */
 .design-item {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
