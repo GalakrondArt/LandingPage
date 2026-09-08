@@ -1,5 +1,26 @@
+// Funcionalidad del Menú Hamburguesa para Móviles
+const mobileMenuBtn = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+// Abrir y cerrar el menú al presionar el ícono
+mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+});
+
+// Función extra para cerrar el menú si se hace clic en "Cotizar" u otra ancla
+function closeMobileMenu() {
+    if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+    }
+}
+
 // Función para cambiar de vista (Páginas virtuales dentro del mismo documento HTML)
 function switchPage(pageId) {
+    // Cerrar el menú móvil automáticamente al seleccionar una opción
+    closeMobileMenu();
+
     // Ocultar todas las secciones de página
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
