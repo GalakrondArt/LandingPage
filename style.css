@@ -25,7 +25,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
-    overflow-x: hidden; /* Evita scroll horizontal indeseado */
 }
 
 .container {
@@ -53,47 +52,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
 .logo img {
     height: 45px;
     object-fit: contain;
-}
-
-/* Contenedor del nuevo banner de texto */
-.header-banner {
-    flex: 1; /* Ocupa el espacio restante entre el logo y el menú */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 15px;
-}
-
-/* Configuración de la imagen del banner */
-.header-banner img {
-    max-height: 45px; /* Altura alineada con el logotipo para no romper la barra */
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-/* Ocultar el botón hamburguesa en computadora */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 6px;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: var(--white);
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
 }
 
 .nav-menu {
@@ -237,7 +200,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Galería */
+/* Galería (Inmutabilidad de Imágenes) */
 .gallery {
     padding: 70px 0;
 }
@@ -428,7 +391,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* RESPONSIVIDAD PARA MÓVILES */
+/* Responsividad */
 @media (max-width: 768px) {
     .hero-grid, .footer-grid {
         grid-template-columns: 1fr;
@@ -447,56 +410,7 @@ body {
         justify-content: center;
     }
     
-    /* Pequeño ajuste para que el texto de la imagen del banner no se vea apretado */
-    .header-banner img {
-        max-height: 35px;
-    }
-
-    /* Liberamos al contenedor para que el menú pueda abarcar toda la pantalla */
-    .nav-container {
-        position: static; 
-    }
-
-    .menu-toggle {
-        display: flex; /* Muestra el icono de hamburguesa */
-    }
-
-    /* Configuración del Menú Desplegable (Responsivo con ocultamiento absoluto) */
     .nav-menu {
-        position: absolute;
-        top: 100%; /* Inicia justo debajo de la cabecera */
-        left: 0;
-        flex-direction: column;
-        background-color: var(--deep-green);
-        width: 100%; /* Toma el ancho total de la pantalla de borde a borde */
-        text-align: center;
-        padding: 30px 0;
-        gap: 25px;
-        border-bottom: 3px solid var(--brand-orange);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-        
-        /* Ocultamiento y animación */
-        visibility: hidden;
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: all 0.4s ease-in-out;
-    }
-
-    /* Cuando JS agrega esta clase, el menú se hace visible y se desliza a la pantalla */
-    .nav-menu.active {
-        visibility: visible;
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    /* Animación del icono de hamburguesa convirtiéndose en 'X' */
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        display: none;
     }
 }
