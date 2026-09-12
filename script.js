@@ -90,18 +90,6 @@ function filterDesigns(category) {
     });
 }
 
-// Efecto Parallax en escritorio para las animaciones del fondo
-document.addEventListener('mousemove', (e) => {
-    if(window.innerWidth > 768) {
-        const bgAnim = document.getElementById('bg-anim');
-        if (bgAnim) {
-            const x = (e.clientX / window.innerWidth - 0.5) * 30;
-            const y = (e.clientY / window.innerHeight - 0.5) * 30;
-            bgAnim.style.transform = `translate(${x}px, ${y}px)`;
-        }
-    }
-});
-
 // Escuchar cambios en la URL (Hash) para navegación directa
 window.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash === '#new-designs') {
