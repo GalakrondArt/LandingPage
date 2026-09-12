@@ -24,26 +24,6 @@ body {
 
 main, .footer, .header { position: relative; z-index: 10; }
 
-/* --- Animaciones de Fondo --- */
-.background-animations {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none; z-index: 0; overflow: hidden;
-    transition: transform 0.2s ease-out;
-}
-
-.background-animations svg { position: absolute; color: var(--brand-orange); opacity: 0.04; }
-.anim-pattern { width: 300px; top: 50%; left: 50%; margin-top: -150px; margin-left: -150px; opacity: 0.02 !important; animation: rotatePattern 80s linear infinite; }
-.anim-condor { width: 150px; top: 15%; left: -200px; animation: soarCondor 35s linear infinite; }
-.anim-hummingbird { width: 80px; bottom: 25%; right: -100px; animation: flutterHummingbird 22s ease-in-out infinite; }
-.anim-jaguar { width: 120px; bottom: 5%; left: -200px; animation: prowlJaguar 40s linear infinite; }
-.anim-capybara { width: 90px; top: 40%; right: -150px; animation: walkCapybara 45s linear infinite; }
-
-@keyframes rotatePattern { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes soarCondor { 0% { transform: translate(0, 0) scale(0.8) rotate(10deg); opacity: 0; } 10% { opacity: 0.05; } 50% { transform: translate(60vw, -10vh) scale(1.2) rotate(-5deg); } 90% { opacity: 0.05; } 100% { transform: translate(120vw, -20vh) scale(1) rotate(0deg); opacity: 0; } }
-@keyframes flutterHummingbird { 0% { transform: translate(0, 0) translateY(0); opacity: 0; } 10% { opacity: 0.08; } 25% { transform: translate(-25vw, -15vh) translateY(-20px); } 50% { transform: translate(-50vw, -5vh) translateY(10px); } 75% { transform: translate(-75vw, -25vh) translateY(-15px); } 90% { opacity: 0.08; } 100% { transform: translate(-120vw, -10vh) translateY(0); opacity: 0; } }
-@keyframes prowlJaguar { 0% { transform: translateX(0); opacity: 0; } 10% { opacity: 0.04; } 90% { opacity: 0.04; } 100% { transform: translateX(120vw); opacity: 0; } }
-@keyframes walkCapybara { 0% { transform: translateX(0); opacity: 0; } 10% { opacity: 0.04; } 90% { opacity: 0.04; } 100% { transform: translateX(-120vw); opacity: 0; } }
-
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 .highlight { color: var(--brand-orange); }
 
@@ -132,12 +112,6 @@ main, .footer, .header { position: relative; z-index: 10; }
 
 /* RESPONSIVIDAD PARA MÓVILES Y TABLETAS */
 @media (max-width: 768px) {
-    .anim-pattern { width: 200px; margin-top: -100px; margin-left: -100px; }
-    .anim-condor { width: 90px; }
-    .anim-hummingbird { width: 50px; }
-    .anim-jaguar { width: 80px; }
-    .anim-capybara { width: 60px; }
-
     .hero-grid, .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .hero-content h1 { font-size: 2.2rem; }
     .footer-info p { margin: 0 auto; }
@@ -164,12 +138,12 @@ main, .footer, .header { position: relative; z-index: 10; }
 
     .nav-menu.active { left: 0; visibility: visible; opacity: 1; }
 
-    /* CORRECCIÓN DEFINITIVA DE BOTONES EN MÓVIL (Uso de !important para sobreescribir cualquier herencia oscura) */
+    /* CORRECCIÓN DEFINITIVA DE BOTONES EN MÓVIL */
     .nav-menu .nav-link {
         display: block !important;
         width: 100% !important;
         background-color: var(--brand-orange) !important; 
-        color: #FFFFFF !important; /* Texto forzado a blanco puro */
+        color: #FFFFFF !important; 
         border: none !important;
         padding: 16px 10px !important;
         border-radius: 8px !important;
