@@ -1,72 +1,85 @@
-// Funcionalidad del Menú Hamburguesa para Móviles
+// Elementos del Menú
 const mobileMenuBtn = document.getElementById('mobile-menu');
 const navMenu = document.querySelector('.nav-menu');
+const menuOverlay = document.getElementById('menu-overlay');
 
-// Abrir y cerrar el menú al presionar el ícono
+// Abrir y cerrar el cajón lateral y el overlay oscuro al presionar la hamburguesa
 mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileMenuBtn.classList.toggle('active');
+    
+    if(menuOverlay.classList.contains('active')) {
+        menuOverlay.classList.remove('active');
+        setTimeout(() => { menuOverlay.style.display = 'none'; }, 400);
+    } else {
+        menuOverlay.style.display = 'block';
+        setTimeout(() => { menuOverlay.classList.add('active'); }, 10);
+    }
 });
 
-// Función extra para cerrar el menú si se hace clic en "Cotizar" u otra ancla
+// Función para cerrar el menú lateral al hacer clic en un enlace o en el fondo oscuro
 function closeMobileMenu() {
     if (navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         mobileMenuBtn.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        setTimeout(() => { menuOverlay.style.display = 'none'; }, 400);
     }
 }
 
-// Función para cambiar de vista (Páginas virtuales dentro del mismo documento HTML)
+// Función principal de navegación entre las pestañas actualizadas
 function switchPage(pageId) {
-    // Cerrar el menú móvil automáticamente al seleccionar una opción
+    // 1. Cerrar el menú móvil automáticamente
     closeMobileMenu();
 
-    // Ocultar todas las secciones de página
+    // 2. Ocultar todas las secciones de página
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
         section.classList.remove('active');
     });
 
-    // Remover clase activa de los enlaces de navegación
+    // 3. Remover clase activa de los enlaces de navegación superior
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.classList.remove('active');
     });
 
-    // Activar la página correspondiente
+    // 4. Activar la página seleccionada y resaltar el enlace en el menú
     if (pageId === 'home') {
         document.getElementById('page-home').classList.add('active');
         document.querySelector('a[onclick*="home"]').classList.add('active');
     } else if (pageId === 'new-designs') {
         document.getElementById('page-new-designs').classList.add('active');
         document.querySelector('a[onclick*="new-designs"]').classList.add('active');
+    } else if (pageId === 'que-hacemos') {
+        document.getElementById('page-que-hacemos').classList.add('active');
+        document.querySelector('a[onclick*="que-hacemos"]').classList.add('active');
+    } else if (pageId === 'quienes-somos') {
+        document.getElementById('page-quienes-somos').classList.add('active');
+        document.querySelector('a[onclick*="quienes-somos"]').classList.add('active');
     }
 
-    // Scroll automático hacia arriba al cambiar de página
+    // 5. Scroll suave automático hacia arriba
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Función para filtrar los nuevos diseños mediante los botones
+// Función para filtrar las ilustraciones
 function filterDesigns(category) {
-    // Actualizar botones visualmente para mostrar cuál está activo
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 
-    // Filtrar las imágenes (elementos)
     const items = document.querySelectorAll('.design-item');
     items.forEach(item => {
         if (category === 'all') {
             item.classList.remove('hidden');
             item.style.display = 'flex';
         } else {
-            // Verifica si el diseño tiene la clase de la categoría elegida
             if (item.classList.contains(category)) {
                 item.classList.remove('hidden');
                 item.style.display = 'flex';
             } else {
                 item.classList.add('hidden');
-                // Un pequeño retraso para la animación antes de ocultarlo completamente
                 setTimeout(() => {
                     if(item.classList.contains('hidden')) {
                         item.style.display = 'none';
@@ -77,10 +90,26 @@ function filterDesigns(category) {
     });
 }
 
-// Escuchar cambios en la URL (Hash) para navegación directa opcional
+// Efecto Parallax en escritorio para las animaciones del fondo
+document.addEventListener('mousemove', (e) => {
+    if(window.innerWidth > 768) {
+        const bgAnim = document.getElementById('bg-anim');
+        if (bgAnim) {
+            const x = (e.clientX / window.innerWidth - 0.5) * 30;
+            const y = (e.clientY / window.innerHeight - 0.5) * 30;
+            bgAnim.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    }
+});
+
+// Escuchar cambios en la URL (Hash) para navegación directa
 window.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash === '#new-designs') {
         switchPage('new-designs');
+    } else if (window.location.hash === '#que-hacemos') {
+        switchPage('que-hacemos');
+    } else if (window.location.hash === '#quienes-somos') {
+        switchPage('quienes-somos');
     } else {
         switchPage('home');
     }
