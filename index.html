@@ -9,23 +9,52 @@
 </head>
 <body>
 
+    <!-- Animaciones Precolombinas y de Fauna -->
+    <div class="background-animations" id="bg-anim">
+        <svg class="anim-pattern" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,90 L10,50 L30,50 L30,30 L50,30 L50,10 L90,10 L90,30 L70,30 L70,50 L50,50 L50,70 L30,70 L30,90 Z" fill="currentColor"/>
+        </svg>
+        <svg class="anim-condor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,10 90,40 50,30 10,40" fill="currentColor"/>
+            <polygon points="50,30 65,70 50,90 35,70" fill="currentColor"/>
+        </svg>
+        <svg class="anim-hummingbird" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,50 40,30 50,10 60,30 80,50 60,60 50,90 40,60" fill="currentColor"/>
+            <polygon points="20,50 0,45 20,40" fill="currentColor"/>
+        </svg>
+        <svg class="anim-jaguar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="25" width="50" height="50" fill="currentColor"/>
+            <circle cx="40" cy="40" r="6" fill="var(--bg-dark)"/>
+            <circle cx="60" cy="40" r="6" fill="var(--bg-dark)"/>
+            <polygon points="25,25 10,10 40,25" fill="currentColor"/>
+            <polygon points="75,25 90,10 60,25" fill="currentColor"/>
+            <polygon points="40,60 50,75 60,60" fill="var(--bg-dark)"/>
+        </svg>
+        <svg class="anim-capybara" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,60 L20,35 L40,35 L40,25 L80,25 L80,50 L95,50 L95,80 L75,80 L75,60 L35,60 L35,80 L10,80 L10,60 Z" fill="currentColor"/>
+        </svg>
+    </div>
+
+    <!-- Fondo oscuro que aparece al abrir el menú en móviles -->
+    <div class="menu-overlay" id="menu-overlay" onclick="closeMobileMenu()"></div>
+
     <header class="header">
         <div class="container nav-container">
             <div class="logo">
                 <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
             </div>
             
-            <!-- Imagen central de la cabecera (Sin ancho fijo para evitar desbordamiento en iOS) -->
             <div class="header-banner">
                 <img src="./src/texto-banner.png" alt="Texto Banner GALAKROND">
             </div>
 
             <nav class="nav-menu">
-                <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
-                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs')">Nuevos Diseños</a>
+                <a href="#home" class="nav-link active" onclick="switchPage('home'); return false;">Inicio</a>
+                <a href="#quienes-somos" class="nav-link" onclick="switchPage('quienes-somos'); return false;">Quiénes Somos</a>
+                <a href="#que-hacemos" class="nav-link" onclick="switchPage('que-hacemos'); return false;">Qué Hacemos</a>
+                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs'); return false;">Nuevas Ilustraciones</a>
                 <a href="#contacto" class="btn-cta-nav" onclick="closeMobileMenu()">Cotizar</a>
             </nav>
-            <!-- Botón de menú para móviles -->
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -35,6 +64,7 @@
     </header>
 
     <main>
+        <!-- Pestaña de Inicio -->
         <section id="page-home" class="page-section active">
             <section class="hero">
                 <div class="container hero-grid">
@@ -72,31 +102,67 @@
                     </div>
                 </div>
             </section>
+        </section>
 
-            <section class="gallery">
+        <!-- Pestaña: Quiénes Somos -->
+        <section id="page-quienes-somos" class="page-section">
+            <section class="new-releases-header">
                 <div class="container">
-                    <h2>Muestrario de Trabajos</h2>
-                    <p class="section-subtitle">Diseños impresos originales manteniendo su formato intacto</p>
-                    <div class="gallery-grid">
-                        <div class="image-wrapper">
-                            <img src="./src/design-1.png" alt="Diseño Muestra 1">
+                    <h1>Quiénes <span class="highlight">Somos</span></h1>
+                    <p>Conoce la esencia creativa detrás de la marca.</p>
+                </div>
+            </section>
+
+            <section class="advantages" style="margin-bottom: 50px;">
+                <div class="container">
+                    <div class="advantage-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px;">
+                        <h3 style="color: var(--brand-orange); font-size: 1.8rem; margin-bottom: 20px;">GALAKROND ART</h3>
+                        <p style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">
+                            Somos un estudio de ilustración digital y diseño radicado en <strong>Cali, Colombia</strong>. 
+                            Nos apasiona fusionar el arte gráfico moderno y urbano con la enorme riqueza cultural de nuestra región. 
+                            Buscamos que la magia precolombina y nuestra fauna local (como el jaguar, el cóndor, el capibara y el colibrí) 
+                            lleguen a tus prendas a través de la más alta tecnología en impresión DTF, garantizando arte usable, resistente y lleno de vida.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Pestaña: Qué Hacemos (Servicios) -->
+        <section id="page-que-hacemos" class="page-section">
+            <section class="new-releases-header">
+                <div class="container">
+                    <h1>Qué <span class="highlight">Hacemos</span></h1>
+                    <p>Brindamos soluciones gráficas integrales con un sello único y calidad garantizada.</p>
+                </div>
+            </section>
+
+            <section class="advantages" style="margin-bottom: 50px;">
+                <div class="container">
+                    <div class="advantages-grid">
+                        <div class="advantage-card">
+                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">👕 Estampados DTF</h3>
+                            <p>Estampados personalizados en DTF en todo tipo de camisetas, cuadros, etc. Calidad fotográfica y máxima durabilidad para tus proyectos.</p>
                         </div>
-                        <div class="image-wrapper">
-                            <img src="./src/design-2.png" alt="Diseño Muestra 2">
+                        <div class="advantage-card">
+                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">🎨 Ilustración Personalizada</h3>
+                            <p>Realizamos ilustración personalizada de mascotas y familias, ideal para regalos invaluables o para llevar a tus seres queridos siempre contigo.</p>
                         </div>
-                        <div class="image-wrapper">
-                            <img src="./src/design-3.png" alt="Diseño Muestra 3">
+                        <div class="advantage-card">
+                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">✒️ Logotipos</h3>
+                            <p>Diseño y vectorización de logotipos para darle una identidad fuerte, moderna y profesional a tu marca o emprendimiento.</p>
                         </div>
                     </div>
                 </div>
             </section>
         </section>
 
+        <!-- Pestaña: Nuevas Ilustraciones -->
         <section id="page-new-designs" class="page-section">
             <section class="new-releases-header">
                 <div class="container">
-                    <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
-                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
+                    <h1>Nuevas Ilustraciones y <span class="highlight">Lanzamientos</span></h1>
+                    <p>Descubre nuestras últimas creaciones. Explora por categoría para encontrar el estilo perfecto.</p>
                     
                     <div class="category-filters">
                         <button class="filter-btn active" onclick="filterDesigns('all')">Ver Todos</button>
@@ -110,6 +176,7 @@
             <section class="gallery">
                 <div class="container">
                     <div class="gallery-grid" id="designs-grid">
+                        <!-- Imágenes originales -->
                         <div class="image-wrapper design-item fauna precolombino">
                             <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1">
                             <div class="card-action">
@@ -124,6 +191,26 @@
                         </div>
                         <div class="image-wrapper design-item fauna">
                             <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Imágenes Nuevas Solicitadas -->
+                        <div class="image-wrapper design-item precolombino">
+                            <img src="./src/nueva-imagen-1.png" alt="Nueva Ilustración Precolombina">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item fauna urbano">
+                            <img src="./src/nueva-imagen-2.png" alt="Nueva Ilustración Fauna">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item urbano">
+                            <img src="./src/nueva-imagen-3.png" alt="Nueva Ilustración Urbana">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
