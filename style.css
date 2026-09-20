@@ -1,174 +1,154 @@
-/* Variables de Diseño (Paleta Forest Green & Deep Orange) */
-:root {
-    --brand-orange: #FF6600;
-    --brand-orange-hover: #E05A00;
-    --deep-green: #0A2F1D; 
-    --bg-dark: #051A10;    
-    --green-accent: #114D31; 
-    --green-light: #1E7A4E; 
-    --text-light: #F4F6F9;
-    --text-muted: #A3B8AD; 
-    --white: #FFFFFF;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALAKROND ART | Estampados DTF y Diseño</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
+                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs')">Nuevos Diseños</a>
+                <a href="#contacto" class="btn-cta-nav">Cotizar</a>
+            </nav>
+        </div>
+    </header>
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    overflow-x: hidden; 
-    width: 100%;
-}
+    <main>
 
-main, .footer, .header { position: relative; z-index: 10; }
+        <section id="page-home" class="page-section active">
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div class="hero-content fade-in-up">
+                        <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
+                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
+                        <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
+                    </div>
+                    <div class="hero-image fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="./src/hero-banner.png" alt="Banner Principal DTF">
+                    </div>
+                </div>
+            </section>
 
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
-.highlight { color: var(--brand-orange); }
+            <section class="advantages">
+                <div class="container">
+                    <h2 class="fade-in-up">¿Por qué elegir nuestros estampados DTF?</h2>
+                    <div class="advantages-grid">
+                        <div class="advantage-card fade-in-up">
+                            <h3>Colores Ultra Vibrantes</h3>
+                            <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
+                        </div>
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.1s;">
+                            <h3>Máxima Durabilidad</h3>
+                            <p>Resistente a decenas de lavadas sin agrietarse ni perder calidad en el acabado.</p>
+                        </div>
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.2s;">
+                            <h3>Tacto Suave</h3>
+                            <p>Textura ligera y flexible que se integra perfectamente a la tela sin sentirse pesada.</p>
+                        </div>
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.3s;">
+                            <h3>Versatilidad Total</h3>
+                            <p>Ideal para algodón, poliéster, mezclas, lona, gorras, hoodies y mucho más.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-.header {
-    background-color: var(--deep-green); border-bottom: 3px solid var(--brand-orange);
-    position: sticky; top: 0; padding: 15px 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); width: 100%;
-}
+            <section class="gallery">
+                <div class="container">
+                    <h2 class="fade-in-up">Muestrario de Trabajos</h2>
+                    <p class="section-subtitle fade-in-up">Diseños impresos originales manteniendo su formato intacto</p>
+                    <div class="gallery-grid">
+                        <div class="image-wrapper fade-in-up">
+                            <img src="./src/design-1.png" alt="Diseño Muestra 1">
+                        </div>
+                        <div class="image-wrapper fade-in-up" style="transition-delay: 0.1s;">
+                            <img src="./src/design-2.png" alt="Diseño Muestra 2">
+                        </div>
+                        <div class="image-wrapper fade-in-up" style="transition-delay: 0.2s;">
+                            <img src="./src/design-3.png" alt="Diseño Muestra 3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
 
-.nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; gap: 15px; }
-.logo { flex-shrink: 0; }
-.logo img { height: 45px; object-fit: contain; }
+        <section id="page-new-designs" class="page-section">
+            <section class="new-releases-header">
+                <div class="container fade-in-up">
+                    <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
+                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
+                    
+                    <div class="category-filters">
+                        <button class="filter-btn active" onclick="filterDesigns('all')">Ver Todos</button>
+                        <button class="filter-btn" onclick="filterDesigns('fauna')">Fauna Colombiana</button>
+                        <button class="filter-btn" onclick="filterDesigns('urbano')">Estilo Urbano</button>
+                        <button class="filter-btn" onclick="filterDesigns('precolombino')">Precolombino</button>
+                    </div>
+                </div>
+            </section>
 
-.header-banner { flex: 1 1 auto; min-width: 0; display: flex; justify-content: center; align-items: center; }
-.header-banner img { width: 100%; max-width: 350px; height: auto; max-height: 45px; object-fit: contain; }
+            <section class="gallery">
+                <div class="container">
+                    <div class="gallery-grid" id="designs-grid">
+                        <div class="image-wrapper design-item fauna precolombino fade-in-up">
+                            <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item urbano fade-in-up" style="transition-delay: 0.1s;">
+                            <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item fauna fade-in-up" style="transition-delay: 0.2s;">
+                            <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
 
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1003; position: relative; }
-.menu-toggle span { display: block; width: 30px; height: 3px; background-color: var(--white); border-radius: 3px; transition: all 0.3s ease-in-out; }
+    </main>
 
-.nav-menu { display: flex; align-items: center; gap: 30px; }
-.nav-link { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.3s; cursor: pointer; }
-.nav-link:hover, .nav-link.active { color: var(--brand-orange); }
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info fade-in-up">
+                <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
+                <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
+            </div>
+            <div class="footer-links fade-in-up" style="transition-delay: 0.2s;">
+                <h3>Contacto Rápido</h3>
+                <p>¿Listo para estampar tus ideas?</p>
+                <div class="social-buttons">
+                    <a href="https://wa.me/" target="_blank" class="btn-social whatsapp">WhatsApp Directo</a>
+                    <a href="https://instagram.com/" target="_blank" class="btn-social instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GALAKROND ART. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-.btn-cta-nav {
-    background-color: var(--brand-orange); color: var(--white); padding: 8px 20px; border-radius: 4px;
-    text-decoration: none; font-weight: 800; transition: background 0.3s;
-}
-.btn-cta-nav:hover { background-color: var(--brand-orange-hover); }
-
-.menu-overlay { display: none; }
-
-.page-section { display: none; animation: fadeIn 0.5s ease-in-out; }
-.page-section.active { display: block; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-.hero { padding: 80px 0; background: linear-gradient(135deg, var(--deep-green) 0%, rgba(5,26,16,0.8) 100%); }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.hero-content h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-.hero-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
-
-.btn-primary {
-    display: inline-block; background-color: var(--brand-orange); color: var(--white); padding: 15px 30px;
-    border-radius: 6px; font-weight: 800; text-decoration: none; text-transform: uppercase;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
-}
-.btn-primary:hover { background-color: var(--brand-orange-hover); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4); }
-.hero-image img { width: 100%; max-height: 450px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
-
-.advantages { padding: 70px 0; background-color: rgba(10, 47, 29, 0.4); backdrop-filter: blur(5px); }
-.advantages h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
-.advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.advantage-card { background-color: rgba(17, 77, 49, 0.85); padding: 30px; border-radius: 12px; border-left: 4px solid var(--brand-orange); transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-.advantage-card:hover { transform: translateY(-5px); }
-.advantage-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--white); }
-.advantage-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-.gallery { padding: 70px 0; }
-.gallery h2 { text-align: center; font-size: 2.2rem; margin-bottom: 10px; }
-.section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
-.category-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; margin-bottom: 20px; }
-.filter-btn { background-color: transparent; color: var(--text-light); border: 2px solid var(--green-light); padding: 10px 25px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-.filter-btn:hover, .filter-btn.active { background-color: var(--green-light); color: var(--white); border-color: var(--green-light); box-shadow: 0 4px 10px rgba(30, 122, 78, 0.4); }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.image-wrapper { background-color: rgba(17, 77, 49, 0.85); border-radius: 12px; overflow: hidden; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(30, 122, 78, 0.3); transition: transform 0.3s, box-shadow 0.3s; backdrop-filter: blur(5px); }
-.image-wrapper:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-.image-wrapper img { width: 100%; height: auto; max-height: 350px; object-fit: contain; }
-.card-action { margin-top: 20px; width: 100%; text-align: center; }
-.btn-secondary { display: inline-block; background-color: var(--brand-orange); color: var(--white); padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background 0.3s; width: 100%; max-width: 200px; }
-.btn-secondary:hover { background-color: var(--brand-orange-hover); }
-.design-item { transition: opacity 0.4s ease, transform 0.4s ease; }
-.design-item.hidden { display: none; }
-.new-releases-header { padding: 60px 0 20px 0; text-align: center; }
-.new-releases-header h1 { font-size: 2.8rem; margin-bottom: 15px; }
-
-.footer { background-color: var(--deep-green); border-top: 3px solid var(--brand-orange); padding: 60px 0 20px 0; margin-top: 50px; box-shadow: 0 -4px 15px rgba(0,0,0,0.2); }
-.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
-.footer-logo { height: 45px; margin-bottom: 15px; }
-.footer-info p { color: var(--text-muted); max-width: 400px; }
-.footer-links h3 { margin-bottom: 15px; color: var(--white); }
-.social-buttons { display: flex; gap: 15px; margin-top: 15px; }
-.btn-social { padding: 10px 20px; border-radius: 6px; color: var(--white); text-decoration: none; font-weight: 600; transition: transform 0.2s, opacity 0.3s; }
-.btn-social:hover { transform: translateY(-2px); opacity: 0.9; }
-.btn-social.whatsapp { background-color: #25D366; }
-.btn-social.instagram { background-color: #E1306C; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.footer-bottom { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 25px; color: var(--text-muted); font-size: 0.9rem; }
-
-/* RESPONSIVIDAD PARA MÓVILES Y TABLETAS */
-@media (max-width: 768px) {
-    .hero-grid, .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .footer-info p { margin: 0 auto; }
-    .social-buttons { justify-content: center; }
-    .header-banner img { max-height: 30px; }
-
-    .menu-toggle { display: flex; }
-
-    .menu-overlay {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7); z-index: 1001; 
-        display: none; opacity: 0; transition: opacity 0.4s ease;
-    }
-    .menu-overlay.active { display: block; opacity: 1; }
-
-    .nav-menu {
-        position: fixed; top: 0; left: -100%; width: 280px; height: 100vh;
-        flex-direction: column; justify-content: flex-start;
-        background-color: var(--deep-green); text-align: center;
-        padding: 90px 20px 30px 20px; gap: 10px;
-        border-right: 3px solid var(--brand-orange); box-shadow: 15px 0 25px rgba(0, 0, 0, 0.7);
-        visibility: hidden; opacity: 0; transition: all 0.4s ease-in-out; z-index: 1002;
-    }
-
-    .nav-menu.active { left: 0; visibility: visible; opacity: 1; }
-
-    /* CORRECCIÓN DEFINITIVA DE BOTONES EN MÓVIL */
-    .nav-menu .nav-link {
-        display: block !important;
-        width: 100% !important;
-        background-color: var(--brand-orange) !important; 
-        color: #FFFFFF !important; 
-        border: none !important;
-        padding: 16px 10px !important;
-        border-radius: 8px !important;
-        font-size: 1.15rem !important;
-        font-weight: 800 !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
-        margin-bottom: 5px !important;
-    }
-    
-    .nav-menu .nav-link:hover, .nav-menu .nav-link.active {
-        background-color: var(--brand-orange-hover) !important;
-    }
-
-    .nav-menu .btn-cta-nav {
-        display: block !important;
-        width: 100% !important;
-        background-color: #FFFFFF !important;
-        color: var(--brand-orange) !important;
-        padding: 16px 10px !important;
-        font-size: 1.15rem !important;
-        margin-top: 15px !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
-    }
-
-    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-}
+    <script src="script.js"></script>
+</body>
+</html>
