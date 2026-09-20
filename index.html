@@ -9,45 +9,35 @@
 </head>
 <body>
 
-    <!-- Fondo oscuro que aparece al abrir el menú en móviles -->
-    <div class="menu-overlay" id="menu-overlay" onclick="closeMobileMenu()"></div>
-
     <header class="header">
         <div class="container nav-container">
             <div class="logo">
                 <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
             </div>
-            
-            <div class="header-banner">
-                <img src="./src/texto-banner.png" alt="Texto Banner GALAKROND">
-            </div>
-
-            <nav class="nav-menu">
-                <a href="#home" class="nav-link active" onclick="switchPage('home'); return false;">Inicio</a>
-                <a href="#quienes-somos" class="nav-link" onclick="switchPage('quienes-somos'); return false;">Quiénes Somos</a>
-                <a href="#que-hacemos" class="nav-link" onclick="switchPage('que-hacemos'); return false;">Qué Hacemos</a>
-                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs'); return false;">Nuevas Ilustraciones</a>
-                <a href="#contacto" class="btn-cta-nav" onclick="closeMobileMenu()">Cotizar</a>
-            </nav>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
+                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs')">Nuevos Diseños</a>
+                <a href="#contacto" class="btn-cta-nav">Cotizar</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <!-- Pestaña de Inicio -->
+
         <section id="page-home" class="page-section active">
             <section class="hero">
                 <div class="container hero-grid">
-                    <div class="hero-content">
+                    <div class="hero-content fade-in-up">
                         <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
                         <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
                         <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
                     </div>
-                    <div class="hero-image">
+                    <div class="hero-image fade-in-up" style="transition-delay: 0.2s;">
                         <img src="./src/hero-banner.png" alt="Banner Principal DTF">
                     </div>
                 </div>
@@ -55,88 +45,52 @@
 
             <section class="advantages">
                 <div class="container">
-                    <h2>¿Por qué elegir nuestros estampados DTF?</h2>
+                    <h2 class="fade-in-up">¿Por qué elegir nuestros estampados DTF?</h2>
                     <div class="advantages-grid">
-                        <div class="advantage-card">
+                        <div class="advantage-card fade-in-up">
                             <h3>Colores Ultra Vibrantes</h3>
                             <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
                         </div>
-                        <div class="advantage-card">
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.1s;">
                             <h3>Máxima Durabilidad</h3>
                             <p>Resistente a decenas de lavadas sin agrietarse ni perder calidad en el acabado.</p>
                         </div>
-                        <div class="advantage-card">
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.2s;">
                             <h3>Tacto Suave</h3>
                             <p>Textura ligera y flexible que se integra perfectamente a la tela sin sentirse pesada.</p>
                         </div>
-                        <div class="advantage-card">
+                        <div class="advantage-card fade-in-up" style="transition-delay: 0.3s;">
                             <h3>Versatilidad Total</h3>
                             <p>Ideal para algodón, poliéster, mezclas, lona, gorras, hoodies y mucho más.</p>
                         </div>
                     </div>
                 </div>
             </section>
-        </section>
 
-        <!-- Pestaña: Quiénes Somos -->
-        <section id="page-quienes-somos" class="page-section">
-            <section class="new-releases-header">
+            <section class="gallery">
                 <div class="container">
-                    <h1>Quiénes <span class="highlight">Somos</span></h1>
-                    <p>Conoce la esencia creativa detrás de la marca.</p>
-                </div>
-            </section>
-
-            <section class="advantages" style="margin-bottom: 50px;">
-                <div class="container">
-                    <div class="advantage-card" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 40px;">
-                        <h3 style="color: var(--brand-orange); font-size: 1.8rem; margin-bottom: 20px;">GALAKROND ART</h3>
-                        <p style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">
-                            Somos un estudio de ilustración digital y diseño radicado en <strong>Cali, Colombia</strong>. 
-                            Nos apasiona fusionar el arte gráfico moderno y urbano con la enorme riqueza cultural de nuestra región. 
-                            Buscamos que la magia precolombina y nuestra fauna local (como el jaguar, el cóndor, el capibara y el colibrí) 
-                            lleguen a tus prendas a través de la más alta tecnología en impresión DTF, garantizando arte usable, resistente y lleno de vida.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </section>
-
-        <!-- Pestaña: Qué Hacemos (Servicios) -->
-        <section id="page-que-hacemos" class="page-section">
-            <section class="new-releases-header">
-                <div class="container">
-                    <h1>Qué <span class="highlight">Hacemos</span></h1>
-                    <p>Brindamos soluciones gráficas integrales con un sello único y calidad garantizada.</p>
-                </div>
-            </section>
-
-            <section class="advantages" style="margin-bottom: 50px;">
-                <div class="container">
-                    <div class="advantages-grid">
-                        <div class="advantage-card">
-                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">👕 Estampados DTF</h3>
-                            <p>Estampados personalizados en DTF en todo tipo de camisetas, cuadros, etc. Calidad fotográfica y máxima durabilidad para tus proyectos.</p>
+                    <h2 class="fade-in-up">Muestrario de Trabajos</h2>
+                    <p class="section-subtitle fade-in-up">Diseños impresos originales manteniendo su formato intacto</p>
+                    <div class="gallery-grid">
+                        <div class="image-wrapper fade-in-up">
+                            <img src="./src/design-1.png" alt="Diseño Muestra 1">
                         </div>
-                        <div class="advantage-card">
-                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">🎨 Ilustración Personalizada</h3>
-                            <p>Realizamos ilustración personalizada de mascotas y familias, ideal para regalos invaluables o para llevar a tus seres queridos siempre contigo.</p>
+                        <div class="image-wrapper fade-in-up" style="transition-delay: 0.1s;">
+                            <img src="./src/design-2.png" alt="Diseño Muestra 2">
                         </div>
-                        <div class="advantage-card">
-                            <h3 style="color: var(--brand-orange); font-size: 1.4rem;">✒️ Logotipos</h3>
-                            <p>Diseño y vectorización de logotipos para darle una identidad fuerte, moderna y profesional a tu marca o emprendimiento.</p>
+                        <div class="image-wrapper fade-in-up" style="transition-delay: 0.2s;">
+                            <img src="./src/design-3.png" alt="Diseño Muestra 3">
                         </div>
                     </div>
                 </div>
             </section>
         </section>
 
-        <!-- Pestaña: Nuevas Ilustraciones -->
         <section id="page-new-designs" class="page-section">
             <section class="new-releases-header">
-                <div class="container">
-                    <h1>Nuevas Ilustraciones y <span class="highlight">Lanzamientos</span></h1>
-                    <p>Descubre nuestras últimas creaciones. Explora por categoría para encontrar el estilo perfecto.</p>
+                <div class="container fade-in-up">
+                    <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
+                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
                     
                     <div class="category-filters">
                         <button class="filter-btn active" onclick="filterDesigns('all')">Ver Todos</button>
@@ -150,41 +104,20 @@
             <section class="gallery">
                 <div class="container">
                     <div class="gallery-grid" id="designs-grid">
-                        <!-- Imágenes originales -->
-                        <div class="image-wrapper design-item fauna precolombino">
+                        <div class="image-wrapper design-item fauna precolombino fade-in-up">
                             <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
                         </div>
-                        <div class="image-wrapper design-item urbano">
+                        <div class="image-wrapper design-item urbano fade-in-up" style="transition-delay: 0.1s;">
                             <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
                         </div>
-                        <div class="image-wrapper design-item fauna">
+                        <div class="image-wrapper design-item fauna fade-in-up" style="transition-delay: 0.2s;">
                             <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3">
-                            <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Imágenes Nuevas Solicitadas -->
-                        <div class="image-wrapper design-item precolombino">
-                            <img src="./src/nueva-imagen-1.png" alt="Nueva Ilustración Precolombina">
-                            <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
-                            </div>
-                        </div>
-                        <div class="image-wrapper design-item fauna urbano">
-                            <img src="./src/nueva-imagen-2.png" alt="Nueva Ilustración Fauna">
-                            <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
-                            </div>
-                        </div>
-                        <div class="image-wrapper design-item urbano">
-                            <img src="./src/nueva-imagen-3.png" alt="Nueva Ilustración Urbana">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
@@ -193,15 +126,16 @@
                 </div>
             </section>
         </section>
+
     </main>
 
     <footer id="contacto" class="footer">
         <div class="container footer-grid">
-            <div class="footer-info">
+            <div class="footer-info fade-in-up">
                 <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
                 <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-links fade-in-up" style="transition-delay: 0.2s;">
                 <h3>Contacto Rápido</h3>
                 <p>¿Listo para estampar tus ideas?</p>
                 <div class="social-buttons">
