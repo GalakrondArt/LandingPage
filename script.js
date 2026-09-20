@@ -1,85 +1,162 @@
-// Manejo del menú móvil (Hamburguesa)
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.getElementById('nav-menu');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mejoras de SEO Local y Descripción -->
+    <meta name="description" content="GALAKROND ART | Especialistas en ilustración digital y estampados DTF en Cali, Colombia. Alta definición, durabilidad y diseños exclusivos.">
+    <meta name="keywords" content="estampados DTF, ilustración digital, camisetas personalizadas, GALAKROND ART, Cali, Colombia, fauna colombiana, estilo urbano">
+    <meta name="author" content="Cristian Fernando Guerrero Quesada - GALAKROND ART">
+    
+    <title>GALAKROND ART | Estampados DTF y Diseño</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
-mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
+            </div>
+            
+            <!-- Botón hamburguesa para móviles -->
+            <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-// Cerrar menú móvil automáticamente al hacer clic en un enlace
-document.querySelectorAll('.nav-link, .btn-cta-nav').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
+                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs')">Nuevos Diseños</a>
+                <a href="#contacto" class="btn-cta-nav">Cotizar</a>
+            </nav>
+        </div>
+    </header>
 
-// Función para cambiar de vista (Páginas virtuales)
-function switchPage(pageId) {
-    // Ocultar todas las secciones de página
-    const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
+    <main>
+        <section id="page-home" class="page-section active">
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
+                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
+                        <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
+                    </div>
+                    <div class="hero-image">
+                        <!-- preload para imagen principal -->
+                        <img src="./src/hero-banner.png" alt="Banner Principal DTF">
+                    </div>
+                </div>
+            </section>
 
-    // Remover clase activa de los enlaces de navegación
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
+            <section class="advantages">
+                <div class="container">
+                    <h2>¿Por qué elegir nuestros estampados DTF?</h2>
+                    <div class="advantages-grid">
+                        <div class="advantage-card">
+                            <h3>Colores Ultra Vibrantes</h3>
+                            <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>Máxima Durabilidad</h3>
+                            <p>Resistente a decenas de lavadas sin agrietarse ni perder calidad en el acabado.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>Tacto Suave</h3>
+                            <p>Textura ligera y flexible que se integra perfectamente a la tela sin sentirse pesada.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>Versatilidad Total</h3>
+                            <p>Ideal para algodón, poliéster, mezclas, lona, gorras, hoodies y mucho más.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    // Activar la página y enlace correspondiente
-    if (pageId === 'home') {
-        document.getElementById('page-home').classList.add('active');
-        document.querySelector('a[onclick*="home"]').classList.add('active');
-    } else if (pageId === 'new-designs') {
-        document.getElementById('page-new-designs').classList.add('active');
-        document.querySelector('a[onclick*="new-designs"]').classList.add('active');
-    }
+            <section class="gallery">
+                <div class="container">
+                    <h2>Muestrario de Trabajos</h2>
+                    <p class="section-subtitle">Diseños impresos originales manteniendo su formato intacto</p>
+                    <div class="gallery-grid">
+                        <div class="image-wrapper">
+                            <img src="./src/design-1.png" alt="Diseño Muestra 1" loading="lazy">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="./src/design-2.png" alt="Diseño Muestra 2" loading="lazy">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="./src/design-3.png" alt="Diseño Muestra 3" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
 
-    // Scroll automático suave hacia arriba
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+        <section id="page-new-designs" class="page-section">
+            <section class="new-releases-header">
+                <div class="container">
+                    <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
+                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
+                    
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-filter="all">Ver Todos</button>
+                        <button class="filter-btn" data-filter="fauna">Fauna Colombiana</button>
+                        <button class="filter-btn" data-filter="urbano">Estilo Urbano</button>
+                        <button class="filter-btn" data-filter="precolombino">Precolombino</button>
+                    </div>
+                </div>
+            </section>
 
-// Lógica de Filtros Optimizada para no usar setTimeouts inestables
-document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const category = this.getAttribute('data-filter');
-        
-        // Actualizar visualización del botón activo
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
+            <section class="gallery">
+                <div class="container">
+                    <div class="gallery-grid" id="designs-grid">
+                        <div class="image-wrapper design-item fauna precolombino">
+                            <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1" loading="lazy">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item urbano">
+                            <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2" loading="lazy">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper design-item fauna">
+                            <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3" loading="lazy">
+                            <div class="card-action">
+                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
 
-        // Filtrar elementos
-        const items = document.querySelectorAll('.design-item');
-        items.forEach(item => {
-            if (category === 'all') {
-                item.classList.remove('hidden');
-                setTimeout(() => item.style.display = 'flex', 50); // Mantiene el layout en grid
-            } else {
-                if (item.classList.contains(category)) {
-                    item.classList.remove('hidden');
-                    setTimeout(() => item.style.display = 'flex', 50);
-                } else {
-                    item.classList.add('hidden');
-                    // Retraso de 400ms emparejado con CSS antes de quitar el display
-                    setTimeout(() => {
-                        if(item.classList.contains('hidden')) {
-                            item.style.display = 'none';
-                        }
-                    }, 400);
-                }
-            }
-        });
-    });
-});
+    <footer id="contacto" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
+                <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Contacto Rápido</h3>
+                <p>¿Listo para estampar tus ideas?</p>
+                <div class="social-buttons">
+                    <!-- Recuerda poner tu número telefónico y usuario en los enlaces -->
+                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">WhatsApp Directo</a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-social instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GALAKROND ART. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-// Escuchar cambios en la URL (Hash) al cargar la página
-window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash === '#new-designs') {
-        switchPage('new-designs');
-    } else {
-        switchPage('home');
-    }
-});
+    <script src="script.js"></script>
+</body>
+</html>
