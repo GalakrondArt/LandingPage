@@ -3,11 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Mejoras de SEO Local y Descripción -->
-    <meta name="description" content="GALAKROND ART | Especialistas en ilustración digital y estampados DTF en Cali, Colombia. Alta definición, durabilidad y diseños exclusivos.">
-    <meta name="keywords" content="estampados DTF, ilustración digital, camisetas personalizadas, GALAKROND ART, Cali, Colombia, fauna colombiana, estilo urbano">
-    <meta name="author" content="Cristian Fernando Guerrero Quesada - GALAKROND ART">
-    
     <title>GALAKROND ART | Estampados DTF y Diseño</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
@@ -19,33 +14,29 @@
             <div class="logo">
                 <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
             </div>
-            
-            <!-- Botón hamburguesa para móviles -->
-            <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
+            <!-- Menú Hamburguesa para Mobile -->
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
             <nav class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active" onclick="switchPage('home')">Inicio</a>
-                <a href="#new-designs" class="nav-link" onclick="switchPage('new-designs')">Nuevos Diseños</a>
+                <a href="#home" class="nav-link active" data-target="home">Inicio</a>
+                <a href="#new-designs" class="nav-link" data-target="new-designs">Nuevos Diseños</a>
                 <a href="#contacto" class="btn-cta-nav">Cotizar</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Página: Inicio -->
         <section id="page-home" class="page-section active">
             <section class="hero">
                 <div class="container hero-grid">
-                    <div class="hero-content">
+                    <div class="hero-content animate-on-scroll">
                         <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
                         <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
                         <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
                     </div>
-                    <div class="hero-image">
-                        <!-- preload para imagen principal -->
+                    <div class="hero-image animate-on-scroll delay-1">
                         <img src="./src/hero-banner.png" alt="Banner Principal DTF">
                     </div>
                 </div>
@@ -53,83 +44,84 @@
 
             <section class="advantages">
                 <div class="container">
-                    <h2>¿Por qué elegir nuestros estampados DTF?</h2>
+                    <h2 class="animate-on-scroll">¿Por qué elegir nuestros estampados DTF?</h2>
                     <div class="advantages-grid">
-                        <div class="advantage-card">
+                        <article class="advantage-card animate-on-scroll">
                             <h3>Colores Ultra Vibrantes</h3>
                             <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
-                        </div>
-                        <div class="advantage-card">
+                        </article>
+                        <article class="advantage-card animate-on-scroll delay-1">
                             <h3>Máxima Durabilidad</h3>
                             <p>Resistente a decenas de lavadas sin agrietarse ni perder calidad en el acabado.</p>
-                        </div>
-                        <div class="advantage-card">
+                        </article>
+                        <article class="advantage-card animate-on-scroll delay-2">
                             <h3>Tacto Suave</h3>
                             <p>Textura ligera y flexible que se integra perfectamente a la tela sin sentirse pesada.</p>
-                        </div>
-                        <div class="advantage-card">
+                        </article>
+                        <article class="advantage-card animate-on-scroll delay-3">
                             <h3>Versatilidad Total</h3>
                             <p>Ideal para algodón, poliéster, mezclas, lona, gorras, hoodies y mucho más.</p>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
 
             <section class="gallery">
                 <div class="container">
-                    <h2>Muestrario de Trabajos</h2>
-                    <p class="section-subtitle">Diseños impresos originales manteniendo su formato intacto</p>
+                    <h2 class="animate-on-scroll">Muestrario de Trabajos</h2>
+                    <p class="section-subtitle animate-on-scroll">Diseños impresos originales manteniendo su formato intacto</p>
                     <div class="gallery-grid">
-                        <div class="image-wrapper">
+                        <article class="image-wrapper animate-on-scroll">
                             <img src="./src/design-1.png" alt="Diseño Muestra 1" loading="lazy">
-                        </div>
-                        <div class="image-wrapper">
+                        </article>
+                        <article class="image-wrapper animate-on-scroll delay-1">
                             <img src="./src/design-2.png" alt="Diseño Muestra 2" loading="lazy">
-                        </div>
-                        <div class="image-wrapper">
+                        </article>
+                        <article class="image-wrapper animate-on-scroll delay-2">
                             <img src="./src/design-3.png" alt="Diseño Muestra 3" loading="lazy">
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
         </section>
 
+        <!-- Página: Nuevos Diseños -->
         <section id="page-new-designs" class="page-section">
             <section class="new-releases-header">
-                <div class="container">
+                <div class="container animate-on-scroll">
                     <h1>Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
                     <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
                     
-                    <div class="category-filters">
+                    <nav class="category-filters" aria-label="Filtros de catálogo">
                         <button class="filter-btn active" data-filter="all">Ver Todos</button>
                         <button class="filter-btn" data-filter="fauna">Fauna Colombiana</button>
                         <button class="filter-btn" data-filter="urbano">Estilo Urbano</button>
                         <button class="filter-btn" data-filter="precolombino">Precolombino</button>
-                    </div>
+                    </nav>
                 </div>
             </section>
 
             <section class="gallery">
                 <div class="container">
                     <div class="gallery-grid" id="designs-grid">
-                        <div class="image-wrapper design-item fauna precolombino">
+                        <article class="image-wrapper design-item animate-on-scroll" data-category="fauna precolombino">
                             <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1" loading="lazy">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
-                        </div>
-                        <div class="image-wrapper design-item urbano">
+                        </article>
+                        <article class="image-wrapper design-item animate-on-scroll" data-category="urbano">
                             <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2" loading="lazy">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
-                        </div>
-                        <div class="image-wrapper design-item fauna">
+                        </article>
+                        <article class="image-wrapper design-item animate-on-scroll" data-category="fauna">
                             <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3" loading="lazy">
                             <div class="card-action">
                                 <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -137,7 +129,7 @@
     </main>
 
     <footer id="contacto" class="footer">
-        <div class="container footer-grid">
+        <div class="container footer-grid animate-on-scroll">
             <div class="footer-info">
                 <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
                 <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
@@ -146,8 +138,7 @@
                 <h3>Contacto Rápido</h3>
                 <p>¿Listo para estampar tus ideas?</p>
                 <div class="social-buttons">
-                    <!-- Recuerda poner tu número telefónico y usuario en los enlaces -->
-                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">WhatsApp Directo</a>
+                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">WhatsApp</a>
                     <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-social instagram">Instagram</a>
                 </div>
             </div>
@@ -157,6 +148,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
