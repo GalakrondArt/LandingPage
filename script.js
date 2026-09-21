@@ -1,113 +1,153 @@
+/**
+ * GALAKROND ART - Frontend Logic
+ * Refactorizado a ES6+ Modules Pattern
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Interfaz del Menú Móvil ---
-    const mobileMenuBtn = document.getElementById('mobile-menu');
+    // --- 1. CONFIGURACIÓN DEL MENÚ MÓVIL ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
 
     const toggleMenu = () => {
+        mobileMenuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
-        const isActive = navMenu.classList.contains('active');
-        mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        const isExpanded = mobileMenuBtn.classList.contains('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
     };
 
     mobileMenuBtn.addEventListener('click', toggleMenu);
 
-    // --- 2. Navegación tipo SPA (Single Page Application) ---
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.page-section');
+    // --- 2. SISTEMA DE RUTEO (Single Page Application - SPA) ---
+    const switchPage = (pageId) => {
+        // Ocultar todas las secciones
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.remove('active');
+        });
 
-    const switchPage = (targetId) => {
-        // Actualizar vista
-        sections.forEach(sec => sec.classList.remove('active'));
-        document.getElementById(`page-${targetId}`).classList.add('active');
+        // Actualizar navegación visual
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.page === pageId) {
+                link.classList.add('active');
+            }
+        });
 
-        // Actualizar estado activo en navegación
-        navLinks.forEach(link => link.classList.remove('active'));
-        document.querySelector(`.nav-link[data-target="${targetId}"]`).classList.add('active');
+        // Mostrar sección activa
+        const targetPage = document.getElementById(`page-${pageId}`);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
 
-        // Scroll suave al inicio
+        // Cerrar menú móvil si está abierto y scrollear al inicio
+        if (navMenu.classList.contains('active')) toggleMenu();
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Cerrar menú móvil si está abierto
-        if (window.innerWidth < 768 && navMenu.classList.contains('active')) {
-            toggleMenu();
-        }
+        // Reiniciar animaciones de ScrollReveal para la nueva vista
+        setTimeout(initScrollReveal, 100);
     };
 
-    navLinks.forEach(link => {
+    // Escuchar clics en los enlaces de navegación
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = link.getAttribute('data-target');
-            // Actualizar Hash de URL sin recargar
-            window.history.pushState(null, null, `#${target}`);
-            switchPage(target);
+            const isInternalPage = link.dataset.page;
+            if (isInternalPage) {
+                switchPage(isInternalPage);
+            }
         });
     });
 
-    // Manejar el Hash al cargar o navegar hacia atrás
-    const handleRoute = () => {
+    // Manejar navegación directa por URL (#hash)
+    const handleHashNavigation = () => {
         const hash = window.location.hash.replace('#', '');
         if (hash === 'new-designs') {
             switchPage('new-designs');
-        } else {
+        } else if (!hash || hash === 'home') {
             switchPage('home');
         }
     };
     
-    window.addEventListener('popstate', handleRoute);
-    handleRoute(); // Ejecutar en la carga inicial
+    // Escuchar cambios manuales de URL (botones atrás/adelante del navegador)
+    window.addEventListener('hashchange', handleHashNavigation);
+    handleHashNavigation(); // Inicialización
 
-    // --- 3. Filtrado Dinámico del Catálogo ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    // --- 3. SISTEMA DE FILTRADO DINÁMICO (Con transiciones suaves) ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
     const designItems = document.querySelectorAll('.design-item');
 
-    filterBtns.forEach(btn => {
+    filterButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Estilos del botón
-            filterBtns.forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
+            // Actualizar clase activa en botones
+            filterButtons.forEach(b => b.classList.remove('active'));
+            e.currentTarget.classList.add('active');
 
-            const filterValue = e.target.getAttribute('data-filter');
+            const targetCategory = e.currentTarget.dataset.filter;
 
             designItems.forEach(item => {
-                const categories = item.getAttribute('data-category');
+                const itemCategories = item.dataset.category || '';
                 
-                if (filterValue === 'all' || (categories && categories.includes(filterValue))) {
-                    item.style.display = 'flex';
-                    // Pequeño timeout para permitir que el display:flex se aplique antes de la opacidad
-                    setTimeout(() => item.classList.remove('hidden'), 50);
-                } else {
-                    item.classList.add('hidden');
-                    // Esperar que termine la transición CSS antes de quitarlo del flujo
+                // Lógica de coincidencia
+                const isMatch = targetCategory === 'all' || itemCategories.includes(targetCategory);
+
+                if (isMatch) {
+                    item.classList.remove('hidden');
+                    // Pequeño delay para permitir que el display:block se aplique antes de animar opacidad
                     setTimeout(() => {
-                        if (item.classList.contains('hidden')) {
-                            item.style.display = 'none';
+                        item.classList.remove('hide-anim');
+                    }, 50);
+                } else {
+                    item.classList.add('hide-anim');
+                    // Esperar a que termine la transición CSS antes de ocultarlo del DOM
+                    setTimeout(() => {
+                        if (item.classList.contains('hide-anim')) {
+                            item.classList.add('hidden');
                         }
-                    }, 400); 
+                    }, 400); // 400ms coincide con la transición CSS
                 }
             });
         });
     });
 
-    // --- 4. Animaciones al Hacer Scroll (Intersection Observer) ---
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
+
+    // --- 4. ANIMACIONES DE ENTRADA AL SCROLLEAR (Intersection Observer) ---
+    const initScrollReveal = () => {
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        
+        // Configuración del observer (Se activa cuando el 10% del elemento es visible)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Dejar de observar una vez animado para mejor rendimiento
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            // Limpiar clases previas si venimos de otra "página virtual"
+            el.classList.remove('is-visible'); 
+            revealObserver.observe(el);
+        });
     };
 
-    const scrollObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Dejar de observar una vez animado para mejor rendimiento
-                observer.unobserve(entry.target); 
-            }
-        });
-    }, observerOptions);
+    initScrollReveal();
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        scrollObserver.observe(el);
+    // --- 5. CABECERA FLOTANTE CON SOMBRA DINÁMICA ---
+    const header = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 
 });
