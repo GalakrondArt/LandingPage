@@ -5,147 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GALAKROND ART | Estampados DTF y Diseño</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header" id="navbar">
+    <header class="header">
         <div class="container nav-container">
-            <a href="#home" class="logo" aria-label="Ir al inicio">
+            <div class="logo">
                 <img src="./src/logo.png" alt="Logotipo GALAKROND ART">
-            </a>
+            </div>
             <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active" data-page="home">Inicio</a></li>
-                    <li><a href="#new-designs" class="nav-link" data-page="new-designs">Nuevos Diseños</a></li>
-                    <li><a href="#contacto" class="btn-cta-nav">Cotizar</a></li>
-                </ul>
+                <a href="#home" class="nav-link active" data-target="page-home">Inicio</a>
+                <a href="#new-designs" class="nav-link" data-target="page-new-designs">Nuevos Diseños</a>
+                <a href="#contacto" class="btn-cta-nav">Cotizar</a>
             </nav>
-            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <main id="main-content">
-        <!-- SECCIÓN: INICIO -->
-        <section id="page-home" class="page-section active">
-            <section class="hero">
+    <main>
+        <!-- Página de Inicio -->
+        <article id="page-home" class="page-section active">
+            <section class="hero animate-on-scroll">
                 <div class="container hero-grid">
-                    <div class="hero-content scroll-reveal">
-                        <h1>Ilustración y Estampados DTF de <span class="highlight">Alta Definición</span></h1>
-                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas con GALAKROND ART.</p>
-                        <a href="#contacto" class="btn-primary">¡Cotiza tu pedido ahora!</a>
+                    <div class="hero-content">
+                        <h1>Ilustración y Estampados DTF de <span class="highlight cartoon-text">Alta Definición</span></h1>
+                        <p>Lleva tus diseños al siguiente nivel con colores ultra vibrantes, máxima durabilidad y un tacto suave insuperable para tus prendas.</p>
+                        <a href="#contacto" class="btn-primary cartoon-btn">¡Cotiza tu pedido ahora!</a>
                     </div>
-                    <div class="hero-image scroll-reveal fade-left">
-                        <img src="./src/hero-banner.png" alt="Prenda con estampado DTF de Galakrond Art" loading="lazy">
+                    <div class="hero-image">
+                        <img src="./src/hero-banner.png" alt="Banner Principal DTF">
                     </div>
                 </div>
             </section>
 
-            <section class="advantages">
+            <section class="advantages animate-on-scroll">
                 <div class="container">
-                    <h2 class="scroll-reveal">¿Por qué elegir nuestros estampados DTF?</h2>
+                    <h2 class="cartoon-title">¿Por qué elegir nuestros estampados DTF?</h2>
                     <div class="advantages-grid">
-                        <article class="advantage-card scroll-reveal fade-up" style="transition-delay: 100ms;">
+                        <div class="advantage-card cartoon-card">
                             <h3>Colores Ultra Vibrantes</h3>
                             <p>Tonos vivos y fieles a tu ilustración original sin perder intensidad en telas oscuras o claras.</p>
-                        </article>
-                        <article class="advantage-card scroll-reveal fade-up" style="transition-delay: 200ms;">
+                        </div>
+                        <div class="advantage-card cartoon-card">
                             <h3>Máxima Durabilidad</h3>
                             <p>Resistente a decenas de lavadas sin agrietarse ni perder calidad en el acabado.</p>
-                        </article>
-                        <article class="advantage-card scroll-reveal fade-up" style="transition-delay: 300ms;">
+                        </div>
+                        <div class="advantage-card cartoon-card">
                             <h3>Tacto Suave</h3>
                             <p>Textura ligera y flexible que se integra perfectamente a la tela sin sentirse pesada.</p>
-                        </article>
-                        <article class="advantage-card scroll-reveal fade-up" style="transition-delay: 400ms;">
+                        </div>
+                        <div class="advantage-card cartoon-card">
                             <h3>Versatilidad Total</h3>
                             <p>Ideal para algodón, poliéster, mezclas, lona, gorras, hoodies y mucho más.</p>
-                        </article>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="gallery">
+            <section class="gallery animate-on-scroll">
                 <div class="container">
-                    <h2 class="scroll-reveal">Muestrario de Trabajos</h2>
-                    <p class="section-subtitle scroll-reveal">Diseños impresos originales manteniendo su formato intacto</p>
+                    <h2 class="cartoon-title">Muestrario de Trabajos</h2>
+                    <p class="section-subtitle">Diseños impresos originales manteniendo su formato intacto</p>
                     <div class="gallery-grid">
-                        <article class="image-wrapper scroll-reveal">
-                            <img src="./src/design-1.png" alt="Muestra de ilustración digital 1" loading="lazy">
-                        </article>
-                        <article class="image-wrapper scroll-reveal" style="transition-delay: 150ms;">
-                            <img src="./src/design-2.png" alt="Muestra de ilustración digital 2" loading="lazy">
-                        </article>
-                        <article class="image-wrapper scroll-reveal" style="transition-delay: 300ms;">
-                            <img src="./src/design-3.png" alt="Muestra de estampado aplicado 3" loading="lazy">
-                        </article>
+                        <div class="image-wrapper cartoon-card">
+                            <img src="./src/design-1.png" alt="Diseño Muestra 1">
+                        </div>
+                        <div class="image-wrapper cartoon-card">
+                            <img src="./src/design-2.png" alt="Diseño Muestra 2">
+                        </div>
+                        <div class="image-wrapper cartoon-card">
+                            <img src="./src/design-3.png" alt="Diseño Muestra 3">
+                        </div>
                     </div>
                 </div>
             </section>
-        </section>
+        </article>
 
-        <!-- SECCIÓN: NUEVOS DISEÑOS -->
-        <section id="page-new-designs" class="page-section">
-            <section class="new-releases-header">
+        <!-- Página de Nuevos Diseños -->
+        <article id="page-new-designs" class="page-section">
+            <section class="new-releases-header animate-on-scroll">
                 <div class="container">
-                    <h1 class="scroll-reveal">Nuevos Diseños y <span class="highlight">Lanzamientos</span></h1>
-                    <p class="scroll-reveal">Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
+                    <h1 class="cartoon-title">Nuevos Diseños y <span class="highlight cartoon-text">Lanzamientos</span></h1>
+                    <p>Descubre nuestras últimas colecciones. Explora por categoría para encontrar el estilo perfecto para tus prendas.</p>
                     
-                    <nav class="category-filters scroll-reveal" aria-label="Filtro de categorías">
-                        <button class="filter-btn active" data-filter="all">Ver Todos</button>
-                        <button class="filter-btn" data-filter="fauna">Fauna Colombiana</button>
-                        <button class="filter-btn" data-filter="urbano">Estilo Urbano</button>
-                        <button class="filter-btn" data-filter="precolombino">Precolombino</button>
-                    </nav>
+                    <div class="category-filters">
+                        <button class="filter-btn cartoon-btn active" data-filter="all">Ver Todos</button>
+                        <button class="filter-btn cartoon-btn" data-filter="fauna">Fauna Colombiana</button>
+                        <button class="filter-btn cartoon-btn" data-filter="urbano">Estilo Urbano</button>
+                        <button class="filter-btn cartoon-btn" data-filter="precolombino">Precolombino</button>
+                    </div>
                 </div>
             </section>
 
-            <section class="gallery">
+            <section class="gallery animate-on-scroll">
                 <div class="container">
                     <div class="gallery-grid" id="designs-grid">
-                        <article class="image-wrapper design-item scroll-reveal" data-category="fauna precolombino">
-                            <img src="./src/new-release-1.png" alt="Diseño fauna colombiana y precolombino" loading="lazy">
+                        <div class="image-wrapper design-item fauna precolombino cartoon-card">
+                            <img src="./src/new-release-1.png" alt="Nuevo Lanzamiento 1">
                             <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                                <a href="#contacto" class="btn-secondary cartoon-btn">Cotizar</a>
                             </div>
-                        </article>
-                        <article class="image-wrapper design-item scroll-reveal" data-category="urbano">
-                            <img src="./src/new-release-2.png" alt="Diseño estilo urbano" loading="lazy">
+                        </div>
+                        <div class="image-wrapper design-item urbano cartoon-card">
+                            <img src="./src/new-release-2.png" alt="Nuevo Lanzamiento 2">
                             <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                                <a href="#contacto" class="btn-secondary cartoon-btn">Cotizar</a>
                             </div>
-                        </article>
-                        <article class="image-wrapper design-item scroll-reveal" data-category="fauna">
-                            <img src="./src/new-release-3.png" alt="Diseño fauna colombiana" loading="lazy">
+                        </div>
+                        <div class="image-wrapper design-item fauna cartoon-card">
+                            <img src="./src/new-release-3.png" alt="Nuevo Lanzamiento 3">
                             <div class="card-action">
-                                <a href="#contacto" class="btn-secondary">Apartar / Cotizar</a>
+                                <a href="#contacto" class="btn-secondary cartoon-btn">Cotizar</a>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </div>
             </section>
-        </section>
-
+        </article>
     </main>
 
-    <footer id="contacto" class="footer">
-        <div class="container footer-grid scroll-reveal">
+    <footer id="contacto" class="footer animate-on-scroll">
+        <div class="container footer-grid">
             <div class="footer-info">
-                <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo" loading="lazy">
+                <img src="./src/logo.png" alt="Logo GALAKROND ART" class="footer-logo">
                 <p>Especialistas en ilustración digital y estampados DTF de máxima calidad para tu marca o proyecto.</p>
             </div>
             <div class="footer-links">
-                <h3>Contacto Rápido</h3>
+                <h3 class="cartoon-title-small">Contacto Rápido</h3>
                 <p>¿Listo para estampar tus ideas?</p>
                 <div class="social-buttons">
-                    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp" aria-label="Contactar por WhatsApp">WhatsApp Directo</a>
-                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-social instagram" aria-label="Visitar Instagram">Instagram</a>
+                    <a href="https://wa.me/" target="_blank" class="btn-social cartoon-btn whatsapp">WhatsApp</a>
+                    <a href="https://instagram.com/" target="_blank" class="btn-social cartoon-btn instagram">Instagram</a>
                 </div>
             </div>
         </div>
